@@ -3,7 +3,18 @@
 * {
   padding: 0;
   margin: 0;
+  box-sizing: border-box;
   outline: none;
   font-family: "Inter", sans-serif;
   font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: url("~/src/assets/images/bg.jpg") no-repeat;
+  background-size: cover;
 }
