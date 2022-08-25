@@ -3,18 +3,26 @@
 
   <h1>Login to the platform</h1>
 
-  <form>
+  <form [formGroup]="formAuth" (ngSubmit)="submitForm()">
     <label>
       <img src="assets/images/email.svg" alt="Email icon" />
-      <input type="email" placeholder="Type your email address..." />
+      <input
+        type="email"
+        placeholder="Type your email address..."
+        formControlName="email"
+      />
     </label>
     <label>
       <img src="assets/images/password.svg" alt="Password icon" />
-      <input type="password" placeholder="Enter your password..." />
+      <input
+        type="password"
+        placeholder="Enter your password..."
+        formControlName="password"
+      />
     </label>
 
-    <button class="btn-red">SignIn</button>
+    <button class="btn-red" [disabled]="formAuth.invalid">SignIn</button>
   </form>
 
-  <span class="alert">Invalid credentials</span>
+  <span class="alert" *ngIf="msgError">Invalid credentials</span>
 </div>

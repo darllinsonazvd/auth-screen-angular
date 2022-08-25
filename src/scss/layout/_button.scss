@@ -5,7 +5,7 @@
   border: none;
   border-radius: 10px;
   font-size: 16px;
-  font-weight: 700;
+  font-weight: 500;
   color: $white;
   background: $red;
   cursor: pointer;
@@ -14,9 +14,5 @@
   &:disabled {
     cursor: no-drop;
     background: lighten($red, 15%);
-  }
-
-  &:hover {
-    background: darken($red, 8%);
   }
 }
