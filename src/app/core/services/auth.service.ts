@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 
+import { JwtHelperService } from '@auth0/angular-jwt';
+
 import { catchError, map, Observable, throwError } from 'rxjs';
 
 @Injectable({
@@ -38,5 +40,13 @@ export class AuthService {
   public signOut() {
     localStorage.removeItem('access_token');
     return this.router.navigate(['']);
+  }
+
+  public isAuthenticated(): Boolean {
+    const token = localStorage.getItem('access_token');
+    if (!token) return false;
+    const jwtHelper = new JwtHelperService();
+
+    return !jwtHelper.isTokenExpired(token);
   }
 }
